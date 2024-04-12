@@ -21,8 +21,7 @@ namespace API.Controllers
             this.tokenService = tokenService;
         }
 
-        [HttpPost]
-        [Route("/register")]
+        [HttpPost("register")]
         public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
         {
             if (await UserExists(registerDTO.UserName)) return BadRequest("User is taken");

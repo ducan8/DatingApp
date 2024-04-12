@@ -24,8 +24,8 @@ namespace API.Controllers
             return await context.Users.ToListAsync();
         }
 
-        [HttpGet]
-        [Route("{id:int}")]
+        [Authorize]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<UserApp>> GetUser(int id)
         {
             return await context.Users.FirstOrDefaultAsync(x => x.Id == id);
