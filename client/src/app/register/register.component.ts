@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AccountService } from '../_services/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,10 @@ export class RegisterComponent {
 
   model: any = {};
 
-  constructor(private AccountService: AccountService) {}
+  constructor(
+    private AccountService: AccountService,
+    private toastr: ToastrService
+  ) {}
 
   register() {
     console.log(this.model);
@@ -20,7 +24,7 @@ export class RegisterComponent {
         this.cancel();
       },
       error: (err) => {
-        console.log(err);
+        this.toastr.error(err.error);
       },
     });
   }
