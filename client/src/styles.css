@@ -7,7 +7,7 @@
 
 .nav-tabs > li.open,
 .member-tabset > .nav-tabs > li:hover {
-  border-bottom: 4px solid #fbcdcf;
+  border-bottom: 4px solid hsl(357, 85%, 89%);
 }
 
 .member-tabset > .nav-tabs > li.open > a,

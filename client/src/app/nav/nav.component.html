@@ -30,7 +30,8 @@
                 class="dropdown-toggle  text-decoration-none text-light">Welcome
                 {{user.username}}</a>
             <div class="dropdown-menu" *bsDropdownMenu>
-                <a class="dropdown-item">Edit profile</a>
+                <a class="dropdown-item" routerLink="/member/edit">Edit
+                    profile</a>
                 <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
         </div>
