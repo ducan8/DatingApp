@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -18,19 +17,5 @@ export class HomeComponent {
     this.registerMode = value;
   }
 
-  constructor(private http: HttpClient) {
-    this.getUsers();
-  }
-
-  getUsers() {
-    this.http.get('https://localhost:7152/api/Users').subscribe({
-      next: (res) => (this.users = res),
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => {
-        console.log('resquest has completed');
-      },
-    });
-  }
+  constructor() {}
 }

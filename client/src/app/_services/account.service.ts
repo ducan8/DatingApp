@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'models/user';
+import { User } from 'src/app/models/user';
 import { BehaviorSubject, map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
-  baseURL: string = 'https://localhost:7152/api';
+  baseURL: string = environment.apiUrl;
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) {}
 
   login(model: any) {
-    return this.http.post<User>(this.baseURL + '/Account/login', model).pipe(
+    return this.http.post<User>(this.baseURL + 'Account/login', model).pipe(
       map((response: User) => {
         const user = response;
         if (user) {
