@@ -27,7 +27,7 @@ namespace API.Service
 
         public async Task<UserApp> GetUserByUsernameAsync(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(x => x.UserName == username);
+            return await _context.Users.Include(x => x.Photos).FirstOrDefaultAsync(x => x.UserName == username);
         }
 
         public async Task<IEnumerable<UserApp>> GetUsersASync()
